@@ -56,6 +56,7 @@ config -> config.ts.
 Can be used to get user object.
 
 @Params
+
 username: string -> name of the user
 
 Query
@@ -90,6 +91,7 @@ Response
 Used to find most searched users. Returns the list of %limited% most searched users.
 
 @Params
+
 limited: LimitedInput -> number of most searched users
 
 Query
@@ -117,6 +119,7 @@ Input
 Used to reset searched for counter for a specific user. Returnes searched for count for the user, after the reset. 
 
 @Params
+
 username: string
 
 Query

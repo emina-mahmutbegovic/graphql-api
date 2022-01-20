@@ -40,7 +40,7 @@ an array of predefined user objects. Usernames are in the range from 'User1' to 
  - Use [npm install] to install dependencies
  - Use [npm run dev] to run the application
 
-### URI
+### URL
 http://localhost:4000/graphql
 
 ### Note

@@ -1,13 +1,14 @@
 import { Resolver, Mutation, Arg, Query, Int } from 'type-graphql';
 import { UserType } from '../entities/UserType';
-import UserTypeService from '../services/user-type.service';
+import { LimitedInputType } from './types/limited-input.type';
+import { Service } from "typedi";
+import { UserTypeService } from '../services/user-type.service';
 
+@Service()
 @Resolver()
 export class UserTypeResolver {
 
-  constructor(private userTypeService: UserTypeService) {
-    this.userTypeService = new UserTypeService();
-   }
+  constructor(private userTypeService: UserTypeService) { }
 
   @Query((_returns) => UserType, { nullable: false })
   async findByUsername(@Arg('username') username: string) {
@@ -15,11 +16,11 @@ export class UserTypeResolver {
   }
 
   @Query(() => [UserType])
-  async findMostSearchedUsers(@Arg('limited', {  }) limited: number) {
-    return this.userTypeService.findMostSearchedUsers(limited);
+  async findMostSearchedUsers(@Arg('limitedInput') limitedInput: LimitedInputType) {
+    return this.userTypeService.findMostSearchedUsers(limitedInput);
   }
 
-  @Mutation((_returns) => Int)
+  @Mutation(() => Int)
   async deleteSearchedForCount(@Arg('username') username: string) {
     return this.userTypeService.deleteSearchedForCount(username);
   }

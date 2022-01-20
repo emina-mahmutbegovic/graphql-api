@@ -4,14 +4,13 @@ import { prop as Property, getModelForClass } from '@typegoose/typegoose';
 @ObjectType({ description: 'The User Type model' })
 export class UserType {
 
-  // TO DO Determine if type should be string or String
   @Field()
   @Property()
-  username: String;
+  username: string;
 
   @Field()
   @Property()
-  email: String;
+  email: string;
   
   @Field()
   @Property()
@@ -23,5 +22,5 @@ export class UserType {
   
   @Field()
   @Property()
-  followingCount: number  
+  followingCount: number;  
 }

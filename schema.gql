@@ -3,13 +3,17 @@
 # !!!   DO NOT MODIFY THIS FILE BY YOURSELF   !!!
 # -----------------------------------------------
 
+input LimitedInputType {
+  limited: Float!
+}
+
 type Mutation {
   deleteSearchedForCount(username: String!): Int!
 }
 
 type Query {
   findByUsername(username: String!): UserType!
-  findMostSearchedUsers(limited: Float!): [UserType!]!
+  findMostSearchedUsers(limitedInput: LimitedInputType!): [UserType!]!
 }
 
 """The User Type model"""

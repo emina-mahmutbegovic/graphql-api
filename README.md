@@ -31,8 +31,9 @@ an array of predefined user objects. Usernames are in the range from 'User1' to 
 ### References
 * [TypeGraphQL](https://typegraphql.com/)
 * [TypeGoose](https://typegoose.github.io/typegoose/)
+* [Apollo Server](https://www.apollographql.com/docs/apollo-server/)
 
-### Requirements
+### Prerequisites
  - node, npm (https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
 
 ### Running the application
@@ -44,7 +45,7 @@ http://localhost:4000/graphql
 
 ### Note
 Application uses port 4000, so make sure it's free, or change the port number in 
-config -> config.ts.
+config -> config.ts. Configure port in the URI that is provided above accordingly.
 
 ---
 

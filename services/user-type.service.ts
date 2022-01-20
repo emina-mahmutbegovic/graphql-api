@@ -24,9 +24,8 @@ export class UserTypeService {
     deleteSearchedForCount(username: string): number {
         const user = Constants.users.find(user => user.username === username)
         if(user) {
-            const lastSearchedForCountValue = user.searchedForCount;
             user.searchedForCount = 0;
-            return lastSearchedForCountValue;
+            return user.searchedForCount;
         }
         throw new Error(`User with username: ${username} does not exist.`);  
     }

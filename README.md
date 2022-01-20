@@ -25,8 +25,8 @@ RETURNS list of {
 ROUTE: DELETE /searchedForCount
 RETURNS: number  
 ```
-Unfortunately, it does not consume GitHub REST API because the creator of this code did not understand the task well. :) It uses 
-an array of predefined user objects. Usernames are in the range from 'User1' to 'User15'. 
+Unfortunately, it does not consume GitHub REST API because the creator of this code did not understand the task well. It uses 
+an array of predefined user objects. Usernames are in the range from User1 to User15. 
 
 ### References
 * [TypeGraphQL](https://typegraphql.com/)
@@ -44,8 +44,8 @@ an array of predefined user objects. Usernames are in the range from 'User1' to 
 http://localhost:4000/graphql
 
 ### Note
-Application uses port 4000, so make sure it's free, or change the port number in 
-config -> config.ts. Configure port in the URI that is provided above accordingly.
+Application uses port 4000, so make sure it is free, or change the port number in 
+config -> config.ts. Configure port in the URL that is provided above accordingly.
 
 ---
 
@@ -54,7 +54,7 @@ config -> config.ts. Configure port in the URI that is provided above accordingl
 ### Queries & mutations
 
 ### findByUsername 
-Can be used to get user object.
+Can be used to get user object. Returns UserType object.
 
 @Params
 
@@ -89,7 +89,7 @@ Response
 ```
 
 ### findMostSearchedUsers 
-Used to find most searched users. Returns the list of %limited% most searched users.
+Used to find most searched users. Returns the list of most searched users. Length of the list is defined by the limited argument.
 
 @Params
 
@@ -117,7 +117,7 @@ Input
 ```
 
 ### deleteSearchedForCount 
-Used to reset searched for counter for a specific user. Returnes searched for count for the user, after the reset. 
+Used to reset searched for counter for a specific user. Returns searched for count for the user, after the reset. 
 
 @Params
 

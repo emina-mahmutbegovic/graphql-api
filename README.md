@@ -26,7 +26,7 @@ ROUTE: DELETE /searchedForCount
 RETURNS: number  
 ```
 Unfortunately, it does not consume GitHub REST API because the creator of this code did not understand the task well. :) It uses 
-an array of predefined user objects. Usernames are in range from ;'User1' to 'User15'. 
+an array of predefined user objects. Usernames are in the range from 'User1' to 'User15'. 
 
 ### References
 * [TypeGraphQL](https://typegraphql.com/)
@@ -39,6 +39,9 @@ an array of predefined user objects. Usernames are in range from ;'User1' to 'Us
  - Use [npm install] to install dependencies
  - Use [npm run dev] to run the application
 
+### URI
+http://localhost:4000/graphql
+
 ### Note
 Application uses port 4000, so make sure it's free, or change the port number in 
 config -> config.ts.
@@ -47,9 +50,11 @@ config -> config.ts.
 
 ### API
 
-## Queries & mutations
+### Queries & mutations
 
-### findByUsername // Can be used to get user object.
+### findByUsername 
+Can be used to get user object.
+
 @Params
 username: string -> name of the user
 
@@ -81,7 +86,9 @@ Response
 }
 ```
 
-### findMostSearchedUsers // Used to find most searched users. Returns the list of %limited% most searched users.
+### findMostSearchedUsers 
+Used to find most searched users. Returns the list of %limited% most searched users.
+
 @Params
 limited: LimitedInput -> number of most searched users
 
@@ -106,7 +113,9 @@ Input
 }
 ```
 
-### deleteSearchedForCount // Used to reset searched for counter for a specific user. Returnes searched for count for the user, after the reset. 
+### deleteSearchedForCount 
+Used to reset searched for counter for a specific user. Returnes searched for count for the user, after the reset. 
+
 @Params
 username: string
 
@@ -115,4 +124,35 @@ Query
 mutation {
   deleteSearchedForCount(username: "User1")
 }
+```
+
+### GraphQL Schema
+```
+input LimitedInputType {
+  limited: Float!
+}
+```
+
+```
+type Mutation {
+  deleteSearchedForCount(username: String!): Int!
+}
+```
+
+```
+type Query {
+  findByUsername(username: String!): UserType!
+  findMostSearchedUsers(limitedInput: LimitedInputType!): [UserType!]!
+}
+```
+
+```
+"""The User Type model"""
+type UserType {
+  email: String!
+  followerCount: Float!
+  followingCount: Float!
+  searchedForCount: Float!
+  username: String!
+} 
 ```
